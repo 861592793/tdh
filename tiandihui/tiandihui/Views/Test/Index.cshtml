@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/uploadify/jquery.uploadify.min.js"></script>
+<link href="~/Scripts/uploadify/uploadify.css" rel="stylesheet" />
+
+<h2>Index</h2>
+
+@*<form enctype="multipart/form-data" method="post" action="/Test/uploadImage">
+    <input id="testUpload" type="file" name="testUpload" />
+    <input type="submit" value="提交" />
+</form>*@
+
+@*<form enctype="multipart/form-data" method="post" action="/Test/uploadImage">*@
+        <input id="testUpload" type="file" name="testUpload" />
+
+        <a href="javascript:void(0)" onclick="javascript: $('#testUpload').uploadify('upload', '*')">上传</a>
+        <a href="javascript:void(0)" onclick="javascript: $('#testUpload').uploadify('cancel', '*')">取消</a>
+
+        <div id="UpfileQueue" class="fileQueue"></div>
+    @*</form>*@
+<script type="text/javascript">
+
+    $(
+        function () {
+            $("#testUpload").uploadify(
+                {
+                    'swf': '/Scripts/uploadify/uploadify.swf',  //FLash文件路径
+                    'buttonText': "选择图片",                                 //按钮文本
+                    'uploader': "/Test/uploadImage",                      //处理文件上传Action
+                    'cancelImg': '/Scripts/uploadify/uploadify-cancel.png',
+                    'queueID': 'UpfileQueue',                        //队列的ID
+                    'queueSizeLimit': 13,                          //队列最多可上传文件数量，默认为999
+                    'height': 40,
+                    'auto': false,                                 //选择文件后是否自动上传，默认为true
+                    'multi': true,                                 //是否为多选，默认为true
+                    'removeCompleted': true,                       //是否完成后移除序列，默认为true
+                    'fileSizeLimit': '100MB',                       //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
+                    'fileTypeDesc': "这是图片文件",                 //文件描述
+                    'fileTypeExts': "*.jpg; *.png;",  //上传的文件后缀过滤器
+                    'fileObjName': "testUpload",
+                    'onUploadSuccess': function (file, data, response) {
+                        $(fileUrl[i]).val(data.replace(/^\"|\"$/g, ''));
+
+                    },
+                    'onUploadStart': function (file) {
+                        //   $(this).uploadify("settings", 'formData'); //动态传参数
+                    },
+                    'onUploadError': function (event, queueId, fileObj, errorObj) {
+                        alert(errorObj.type + "：" + errorObj.info);
+                    }
+
+                }
+
+            );
+
+        }
+      )
+
+</script>

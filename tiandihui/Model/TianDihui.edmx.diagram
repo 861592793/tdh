@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9ccf7f3563f4b9eae1ed91b05314b63" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="TiDiHuiModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiDiHuiModel.AdminLog" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="TiDiHuiModel.BrandImprove" Width="1.5" PointX="12.75" PointY="14" />
+        <EntityTypeShape EntityType="TiDiHuiModel.BUser" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiDiHuiModel.Category" Width="1.5" PointX="3.75" PointY="11.25" />
+        <EntityTypeShape EntityType="TiDiHuiModel.CBGToB" Width="1.5" PointX="10.5" PointY="8.125" />
+        <EntityTypeShape EntityType="TiDiHuiModel.CommonUser" Width="1.5" PointX="8.25" PointY="3.375" />
+        <EntityTypeShape EntityType="TiDiHuiModel.CUserEqpt" Width="1.5" PointX="10.5" PointY="4.875" />
+        <EntityTypeShape EntityType="TiDiHuiModel.Distribution" Width="1.5" PointX="10.5" PointY="19.625" />
+        <EntityTypeShape EntityType="TiDiHuiModel.NaturalInfo" Width="1.5" PointX="10.5" PointY="11.375" />
+        <EntityTypeShape EntityType="TiDiHuiModel.ProxyNature_c" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="TiDiHuiModel.ProxyUser" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="TiDiHuiModel.Shop" Width="1.5" PointX="6" PointY="10.5" />
+        <EntityTypeShape EntityType="TiDiHuiModel.ShopScore" Width="1.5" PointX="8.25" PointY="19" />
+        <AssociationConnector Association="TiDiHuiModel.FK_Admin_Admin" />
+        <AssociationConnector Association="TiDiHuiModel.FK_BrandImprove_NaturalInfo" />
+        <AssociationConnector Association="TiDiHuiModel.FK_BUser_ProxyUser" />
+        <AssociationConnector Association="TiDiHuiModel.FK_BUser_Shop" />
+        <AssociationConnector Association="TiDiHuiModel.FK_CBGToB_BUser" />
+        <AssociationConnector Association="TiDiHuiModel.FK_NaturalInfo_BUser" />
+        <AssociationConnector Association="TiDiHuiModel.FK_Shop_Category" />
+        <AssociationConnector Association="TiDiHuiModel.FK_CBGToB_CommonUser" />
+        <AssociationConnector Association="TiDiHuiModel.FK_CUserEqpt_CommonUser" />
+        <AssociationConnector Association="TiDiHuiModel.FK_Distribution_CommonUser" />
+        <AssociationConnector Association="TiDiHuiModel.FK_ShopScore_Shop" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

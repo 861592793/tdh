@@ -1,0 +1,20 @@
+﻿添加管理员
+User/Add
+参数
+{"Users": "admin","Password": "123",};
+返回
+{success = false, result = "用户名已被注册"}
+
+删除管理员
+User/Del
+参数
+{"ID": "1"};
+返回
+{success = false, result = "用户名已被注册"}
+
+编辑管理员
+User/Edit
+参数
+{"Password": "1234","Id": "1"}
+返回
+{success = false, result = ""}

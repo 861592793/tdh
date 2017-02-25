@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TDHAuthorityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="menus">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menu_code" Type="varchar" MaxLength="20" />
+          <Property Name="menu_name" Type="varchar" MaxLength="100" />
+          <Property Name="menu_url" Type="varchar" MaxLength="300" />
+          <Property Name="menu_parentid" Type="int" />
+          <Property Name="menu_order" Type="int" />
+          <Property Name="menu_identity" Type="varchar" MaxLength="50" />
+          <Property Name="menu_level" Type="int" />
+          <Property Name="menu_action" Type="int" />
+          <Property Name="menu_app" Type="int" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="rol_id" />
+          </Key>
+          <Property Name="rol_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rol_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="rol_description" Type="nvarchar" MaxLength="200" />
+          <Property Name="rol_isAdmin" Type="bit" />
+          <Property Name="rol_identity" Type="varchar" MaxLength="50" />
+          <Property Name="rol_isDefault" Type="bit" />
+        </EntityType>
+        <EntityType Name="role_menu">
+          <Key>
+            <PropertyRef Name="rmu_id" />
+          </Key>
+          <Property Name="rmu_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menu_id" Type="varchar" MaxLength="50" />
+          <Property Name="rol_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_role_menu_menus">
+          <End Role="menus" Type="Self.menus" Multiplicity="0..1" />
+          <End Role="role_menu" Type="Self.role_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menus">
+              <PropertyRef Name="menu_id" />
+            </Principal>
+            <Dependent Role="role_menu">
+              <PropertyRef Name="menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_menu_role">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="role_menu" Type="Self.role_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="rol_id" />
+            </Principal>
+            <Dependent Role="role_menu">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TDHAuthorityModelStoreContainer">
+          <EntitySet Name="menus" EntityType="Self.menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role_menu" EntityType="Self.role_menu" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_role_menu_menus" Association="Self.FK_role_menu_menus">
+            <End Role="menus" EntitySet="menus" />
+            <End Role="role_menu" EntitySet="role_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_menu_role" Association="Self.FK_role_menu_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="role_menu" EntitySet="role_menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TDHAuthorityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="menus">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menu_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="menu_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="menu_url" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="menu_parentid" Type="Int32" />
+          <Property Name="menu_order" Type="Int32" />
+          <Property Name="menu_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_level" Type="Int32" />
+          <Property Name="menu_action" Type="Int32" />
+          <Property Name="menu_app" Type="Int32" />
+          <NavigationProperty Name="role_menu" Relationship="Self.FK_role_menu_menus" FromRole="menus" ToRole="role_menu" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="rol_id" />
+          </Key>
+          <Property Name="rol_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rol_description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="rol_isAdmin" Type="Boolean" />
+          <Property Name="rol_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rol_isDefault" Type="Boolean" />
+          <NavigationProperty Name="role_menu" Relationship="Self.FK_role_menu_role" FromRole="role" ToRole="role_menu" />
+        </EntityType>
+        <EntityType Name="role_menu">
+          <Key>
+            <PropertyRef Name="rmu_id" />
+          </Key>
+          <Property Name="rmu_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menu_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rol_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="menus" Relationship="Self.FK_role_menu_menus" FromRole="role_menu" ToRole="menus" />
+          <NavigationProperty Name="role" Relationship="Self.FK_role_menu_role" FromRole="role_menu" ToRole="role" />
+        </EntityType>
+        <Association Name="FK_role_menu_menus">
+          <End Role="menus" Type="Self.menus" Multiplicity="0..1" />
+          <End Role="role_menu" Type="Self.role_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menus">
+              <PropertyRef Name="menu_id" />
+            </Principal>
+            <Dependent Role="role_menu">
+              <PropertyRef Name="menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_menu_role">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="role_menu" Type="Self.role_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="rol_id" />
+            </Principal>
+            <Dependent Role="role_menu">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TDHAuthorityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="menus" EntityType="Self.menus" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="role_menu" EntityType="Self.role_menu" />
+          <AssociationSet Name="FK_role_menu_menus" Association="Self.FK_role_menu_menus">
+            <End Role="menus" EntitySet="menus" />
+            <End Role="role_menu" EntitySet="role_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_menu_role" Association="Self.FK_role_menu_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="role_menu" EntitySet="role_menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TDHAuthorityModelStoreContainer" CdmEntityContainer="TDHAuthorityEntities">
+          <EntitySetMapping Name="menus">
+            <EntityTypeMapping TypeName="TDHAuthorityModel.menus">
+              <MappingFragment StoreEntitySet="menus">
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="menu_code" ColumnName="menu_code" />
+                <ScalarProperty Name="menu_name" ColumnName="menu_name" />
+                <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+                <ScalarProperty Name="menu_parentid" ColumnName="menu_parentid" />
+                <ScalarProperty Name="menu_order" ColumnName="menu_order" />
+                <ScalarProperty Name="menu_identity" ColumnName="menu_identity" />
+                <ScalarProperty Name="menu_level" ColumnName="menu_level" />
+                <ScalarProperty Name="menu_action" ColumnName="menu_action" />
+                <ScalarProperty Name="menu_app" ColumnName="menu_app" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="TDHAuthorityModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+                <ScalarProperty Name="rol_name" ColumnName="rol_name" />
+                <ScalarProperty Name="rol_description" ColumnName="rol_description" />
+                <ScalarProperty Name="rol_isAdmin" ColumnName="rol_isAdmin" />
+                <ScalarProperty Name="rol_identity" ColumnName="rol_identity" />
+                <ScalarProperty Name="rol_isDefault" ColumnName="rol_isDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role_menu">
+            <EntityTypeMapping TypeName="TDHAuthorityModel.role_menu">
+              <MappingFragment StoreEntitySet="role_menu">
+                <ScalarProperty Name="rmu_id" ColumnName="rmu_id" />
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

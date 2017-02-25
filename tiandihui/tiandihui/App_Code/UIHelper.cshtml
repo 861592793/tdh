@@ -1,0 +1,10 @@
+﻿
+@helper alertInfo(string mess)
+{
+    if (!string.IsNullOrEmpty(mess))
+    {
+        <script>
+                alert(@mess);
+        </script>
+    }
+}

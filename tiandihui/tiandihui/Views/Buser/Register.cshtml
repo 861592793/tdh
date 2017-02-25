@@ -1,0 +1,63 @@
+﻿@model Model.ViewModel.BuserRegister
+
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+
+<h2>Register</h2>
+
+<form action="/Buser/Register" method="post">
+
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor((m) =>  m.Mobile)
+              
+            </td>
+            <td>
+                @*<input type="text" name="UserName" />*@
+                @Html.TextBoxFor(m=>m.Mobile)
+                @*@Html.ValidationMessageFor((m) => m.UserName, "*", new { aa="1234"})*@
+                @Html.ValidationMessageFor((m) => m.Mobile)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码
+            </td>
+            <td>
+                <input type="text" name="Password" />
+                @Html.ValidationMessageFor((m) => m.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                确认密码
+            </td>
+            <td>
+                <input type="text" name="confirmPassword" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                手机
+            </td>
+            <td>
+                <input type="text" name="Mobile" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="注册" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+<script type="text/javascript">
+ 
+
+</script>

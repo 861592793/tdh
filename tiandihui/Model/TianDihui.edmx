@@ -1,0 +1,1178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TiDiHuiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Users" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Lasttime" Type="datetime" />
+          <Property Name="LastIp" Type="varchar" MaxLength="50" />
+          <Property Name="RolId" Type="int" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AdminLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Users" Type="varchar" MaxLength="50" />
+          <Property Name="LastIp" Type="varchar" MaxLength="50" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Act" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="BrandImprove">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NaturalInfoId" Type="varchar" MaxLength="50" />
+          <Property Name="Src" Type="varchar" MaxLength="300" />
+          <Property Name="Type" Type="int" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="ShopId" Type="varchar" MaxLength="50" />
+          <Property Name="ParentId" Type="varchar" MaxLength="50" />
+          <Property Name="ProxyId" Type="varchar" MaxLength="50" />
+          <Property Name="PayId" Type="varchar" MaxLength="50" />
+          <Property Name="RolId" Type="varchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentId" Type="varchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CBGToB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUserId" Type="varchar" MaxLength="50" />
+          <Property Name="BUserId" Type="varchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CommonUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="RegistTime" Type="datetime" />
+          <Property Name="RegistWay" Type="int" />
+          <Property Name="ParentID" Type="varchar" MaxLength="50" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashBlance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PayId" Type="varchar" MaxLength="50" />
+          <Property Name="isFreeze" Type="bit" />
+          <Property Name="FreezeMoney" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="integral" Type="int" />
+          <Property Name="IsDistribution" Type="bit" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="LastIp" Type="varchar" MaxLength="50" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="20" />
+          <Property Name="HeadImage" Type="varchar" MaxLength="300" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="CUserEqpt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="50" />
+          <Property Name="equipment" Type="varchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Distribution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUserID" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="varchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NaturalInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BUserId" Type="varchar" MaxLength="50" />
+          <Property Name="MngName" Type="nvarchar" MaxLength="20" />
+          <Property Name="MngEmail" Type="varchar" MaxLength="50" />
+          <Property Name="IDCard" Type="varchar" MaxLength="30" />
+          <Property Name="LinkName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LinkMobile" Type="varchar" MaxLength="20" />
+          <Property Name="LgName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LgEmail" Type="varchar" MaxLength="50" />
+          <Property Name="LgMobile" Type="varchar" MaxLength="20" />
+          <Property Name="CompName" Type="nvarchar" MaxLength="40" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="LienceCode" Type="varchar" MaxLength="50" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="50" />
+          <Property Name="CreditCode" Type="varchar" MaxLength="50" />
+          <Property Name="IDFront" Type="varchar" MaxLength="300" />
+          <Property Name="IDBack" Type="varchar" MaxLength="300" />
+          <Property Name="IDSDate" Type="datetime" />
+          <Property Name="IDEDate" Type="datetime" />
+          <Property Name="Licence" Type="varchar" MaxLength="300" />
+          <Property Name="LceSDate" Type="datetime" />
+          <Property Name="LceEDate" Type="datetime" />
+          <Property Name="TaxImProve" Type="varchar" MaxLength="300" />
+          <Property Name="OrgImProve" Type="varchar" MaxLength="300" />
+          <Property Name="OrgSDate" Type="datetime" />
+          <Property Name="OrgEDate" Type="datetime" />
+          <Property Name="OpenAllow" Type="varchar" MaxLength="300" />
+          <Property Name="ProxyState" Type="int" />
+          <Property Name="State" Type="int" />
+          <Property Name="refuseReason" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProxyNature_c">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProxyUserId" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="IDFront" Type="varchar" MaxLength="300" />
+          <Property Name="IDBack" Type="varchar" MaxLength="300" />
+          <Property Name="IDSDate" Type="datetime" />
+          <Property Name="IDEDate" Type="datetime" />
+          <Property Name="State" Type="int" />
+          <Property Name="AddDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProxyUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="RegionId" Type="varchar" MaxLength="50" />
+          <Property Name="Level" Type="int" />
+          <Property Name="ParentID" Type="varchar" MaxLength="50" />
+          <Property Name="RolId" Type="int" />
+          <Property Name="PayId" Type="varchar" MaxLength="50" />
+          <Property Name="Blance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashBlance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MngName" Type="nvarchar" MaxLength="20" />
+          <Property Name="MngEmail" Type="varchar" MaxLength="50" />
+          <Property Name="MngMobile" Type="varchar" MaxLength="20" />
+          <Property Name="IDCard" Type="varchar" MaxLength="30" />
+          <Property Name="LinkName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LinkMobile" Type="varchar" MaxLength="20" />
+          <Property Name="LgName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LgEmail" Type="varchar" MaxLength="50" />
+          <Property Name="LgMobile" Type="varchar" MaxLength="20" />
+          <Property Name="CompName" Type="nvarchar" MaxLength="40" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="LienceCode" Type="varchar" MaxLength="50" />
+          <Property Name="OrgCode" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="50" />
+          <Property Name="CreditCode" Type="varchar" MaxLength="50" />
+          <Property Name="IDFront" Type="varchar" MaxLength="300" />
+          <Property Name="IDBack" Type="varchar" MaxLength="300" />
+          <Property Name="IDSDate" Type="datetime" />
+          <Property Name="IDEDate" Type="datetime" />
+          <Property Name="Licence" Type="varchar" MaxLength="300" />
+          <Property Name="LceSDate" Type="datetime" />
+          <Property Name="LceEDate" Type="datetime" />
+          <Property Name="TaxImProve" Type="varchar" MaxLength="300" />
+          <Property Name="OrgImProve" Type="varchar" MaxLength="300" />
+          <Property Name="OrgSDate" Type="datetime" />
+          <Property Name="OrgEDate" Type="datetime" />
+          <Property Name="OpenAllow" Type="varchar" MaxLength="300" />
+          <Property Name="State" Type="int" />
+          <Property Name="refuseReason" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CgyId" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Logo" Type="varchar" MaxLength="300" />
+          <Property Name="Introduce" Type="nvarchar" MaxLength="500" />
+          <Property Name="Blance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashBlance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="bail" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ShopScore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShopId" Type="varchar" MaxLength="50" />
+          <Property Name="Service" Type="int" />
+          <Property Name="ServiceCount" Type="int" />
+          <Property Name="Quality" Type="int" />
+          <Property Name="QualityCount" Type="int" />
+          <Property Name="SdSpeed" Type="int" />
+          <Property Name="SdCount" Type="int" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Admin_Admin">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="Admin1" Type="Self.Admin" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Admin1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrandImprove_NaturalInfo">
+          <End Role="NaturalInfo" Type="Self.NaturalInfo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BrandImprove" Type="Self.BrandImprove" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NaturalInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandImprove">
+              <PropertyRef Name="NaturalInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUser_ProxyUser">
+          <End Role="ProxyUser" Type="Self.ProxyUser" Multiplicity="0..1" />
+          <End Role="BUser" Type="Self.BUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProxyUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BUser">
+              <PropertyRef Name="ProxyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUser_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+          <End Role="BUser" Type="Self.BUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BUser">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CBGToB_BUser">
+          <End Role="BUser" Type="Self.BUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CBGToB" Type="Self.CBGToB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CBGToB">
+              <PropertyRef Name="BUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CBGToB_CommonUser">
+          <End Role="CommonUser" Type="Self.CommonUser" Multiplicity="0..1" />
+          <End Role="CBGToB" Type="Self.CBGToB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommonUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CBGToB">
+              <PropertyRef Name="CUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUserEqpt_CommonUser">
+          <End Role="CommonUser" Type="Self.CommonUser" Multiplicity="0..1" />
+          <End Role="CUserEqpt" Type="Self.CUserEqpt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommonUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CUserEqpt">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Distribution_CommonUser">
+          <End Role="CommonUser" Type="Self.CommonUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Distribution" Type="Self.Distribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommonUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Distribution">
+              <PropertyRef Name="CUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NaturalInfo_BUser">
+          <End Role="BUser" Type="Self.BUser" Multiplicity="0..1" />
+          <End Role="NaturalInfo" Type="Self.NaturalInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NaturalInfo">
+              <PropertyRef Name="BUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="CgyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopScore_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+          <End Role="ShopScore" Type="Self.ShopScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShopScore">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TiDiHuiModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminLog" EntityType="Self.AdminLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrandImprove" EntityType="Self.BrandImprove" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BUser" EntityType="Self.BUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CBGToB" EntityType="Self.CBGToB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommonUser" EntityType="Self.CommonUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUserEqpt" EntityType="Self.CUserEqpt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distribution" EntityType="Self.Distribution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NaturalInfo" EntityType="Self.NaturalInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProxyNature_c" EntityType="Self.ProxyNature_c" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProxyUser" EntityType="Self.ProxyUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopScore" EntityType="Self.ShopScore" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Admin_Admin" Association="Self.FK_Admin_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Admin1" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandImprove_NaturalInfo" Association="Self.FK_BrandImprove_NaturalInfo">
+            <End Role="NaturalInfo" EntitySet="NaturalInfo" />
+            <End Role="BrandImprove" EntitySet="BrandImprove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUser_ProxyUser" Association="Self.FK_BUser_ProxyUser">
+            <End Role="ProxyUser" EntitySet="ProxyUser" />
+            <End Role="BUser" EntitySet="BUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUser_Shop" Association="Self.FK_BUser_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="BUser" EntitySet="BUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CBGToB_BUser" Association="Self.FK_CBGToB_BUser">
+            <End Role="BUser" EntitySet="BUser" />
+            <End Role="CBGToB" EntitySet="CBGToB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CBGToB_CommonUser" Association="Self.FK_CBGToB_CommonUser">
+            <End Role="CommonUser" EntitySet="CommonUser" />
+            <End Role="CBGToB" EntitySet="CBGToB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUserEqpt_CommonUser" Association="Self.FK_CUserEqpt_CommonUser">
+            <End Role="CommonUser" EntitySet="CommonUser" />
+            <End Role="CUserEqpt" EntitySet="CUserEqpt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Distribution_CommonUser" Association="Self.FK_Distribution_CommonUser">
+            <End Role="CommonUser" EntitySet="CommonUser" />
+            <End Role="Distribution" EntitySet="Distribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NaturalInfo_BUser" Association="Self.FK_NaturalInfo_BUser">
+            <End Role="BUser" EntitySet="BUser" />
+            <End Role="NaturalInfo" EntitySet="NaturalInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Category" Association="Self.FK_Shop_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopScore_Shop" Association="Self.FK_ShopScore_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="ShopScore" EntitySet="ShopScore" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TiDiHuiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Users" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Lasttime" Type="DateTime" Precision="3" />
+          <Property Name="LastIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RolId" Type="Int32" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Admin1" Relationship="TiDiHuiModel.FK_Admin_Admin" FromRole="Admin" ToRole="Admin1" />
+          <NavigationProperty Name="Admin2" Relationship="TiDiHuiModel.FK_Admin_Admin" FromRole="Admin1" ToRole="Admin" />
+        </EntityType>
+        <EntityContainer Name="TiDiHuiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="AdminLog" EntityType="TiDiHuiModel.AdminLog" />
+          <EntitySet Name="BrandImprove" EntityType="TiDiHuiModel.BrandImprove" />
+          <EntitySet Name="BUser" EntityType="TiDiHuiModel.BUser" />
+          <EntitySet Name="Category" EntityType="TiDiHuiModel.Category" />
+          <EntitySet Name="CBGToB" EntityType="TiDiHuiModel.CBGToB" />
+          <EntitySet Name="CommonUser" EntityType="TiDiHuiModel.CommonUser" />
+          <EntitySet Name="CUserEqpt" EntityType="TiDiHuiModel.CUserEqpt" />
+          <EntitySet Name="Distribution" EntityType="TiDiHuiModel.Distribution" />
+          <EntitySet Name="NaturalInfo" EntityType="TiDiHuiModel.NaturalInfo" />
+          <EntitySet Name="ProxyNature_c" EntityType="TiDiHuiModel.ProxyNature_c" />
+          <EntitySet Name="ProxyUser" EntityType="TiDiHuiModel.ProxyUser" />
+          <EntitySet Name="Shop" EntityType="TiDiHuiModel.Shop" />
+          <EntitySet Name="ShopScore" EntityType="TiDiHuiModel.ShopScore" />
+          <AssociationSet Name="FK_Admin_Admin" Association="TiDiHuiModel.FK_Admin_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Admin1" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandImprove_NaturalInfo" Association="TiDiHuiModel.FK_BrandImprove_NaturalInfo">
+            <End Role="NaturalInfo" EntitySet="NaturalInfo" />
+            <End Role="BrandImprove" EntitySet="BrandImprove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUser_ProxyUser" Association="TiDiHuiModel.FK_BUser_ProxyUser">
+            <End Role="ProxyUser" EntitySet="ProxyUser" />
+            <End Role="BUser" EntitySet="BUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUser_Shop" Association="TiDiHuiModel.FK_BUser_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="BUser" EntitySet="BUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CBGToB_BUser" Association="TiDiHuiModel.FK_CBGToB_BUser">
+            <End Role="BUser" EntitySet="BUser" />
+            <End Role="CBGToB" EntitySet="CBGToB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NaturalInfo_BUser" Association="TiDiHuiModel.FK_NaturalInfo_BUser">
+            <End Role="BUser" EntitySet="BUser" />
+            <End Role="NaturalInfo" EntitySet="NaturalInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Category" Association="TiDiHuiModel.FK_Shop_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CBGToB_CommonUser" Association="TiDiHuiModel.FK_CBGToB_CommonUser">
+            <End Role="CommonUser" EntitySet="CommonUser" />
+            <End Role="CBGToB" EntitySet="CBGToB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUserEqpt_CommonUser" Association="TiDiHuiModel.FK_CUserEqpt_CommonUser">
+            <End Role="CommonUser" EntitySet="CommonUser" />
+            <End Role="CUserEqpt" EntitySet="CUserEqpt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Distribution_CommonUser" Association="TiDiHuiModel.FK_Distribution_CommonUser">
+            <End Role="CommonUser" EntitySet="CommonUser" />
+            <End Role="Distribution" EntitySet="Distribution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopScore_Shop" Association="TiDiHuiModel.FK_ShopScore_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="ShopScore" EntitySet="ShopScore" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdminLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Users" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Act" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BrandImprove">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NaturalInfoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Src" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="NaturalInfo" Relationship="TiDiHuiModel.FK_BrandImprove_NaturalInfo" FromRole="BrandImprove" ToRole="NaturalInfo" />
+        </EntityType>
+        <EntityType Name="BUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShopId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProxyId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RolId" Type="String" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ProxyUser" Relationship="TiDiHuiModel.FK_BUser_ProxyUser" FromRole="BUser" ToRole="ProxyUser" />
+          <NavigationProperty Name="Shop" Relationship="TiDiHuiModel.FK_BUser_Shop" FromRole="BUser" ToRole="Shop" />
+          <NavigationProperty Name="CBGToB" Relationship="TiDiHuiModel.FK_CBGToB_BUser" FromRole="BUser" ToRole="CBGToB" />
+          <NavigationProperty Name="NaturalInfo" Relationship="TiDiHuiModel.FK_NaturalInfo_BUser" FromRole="BUser" ToRole="NaturalInfo" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Shop" Relationship="TiDiHuiModel.FK_Shop_Category" FromRole="Category" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="CBGToB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BUser" Relationship="TiDiHuiModel.FK_CBGToB_BUser" FromRole="CBGToB" ToRole="BUser" />
+          <NavigationProperty Name="CommonUser" Relationship="TiDiHuiModel.FK_CBGToB_CommonUser" FromRole="CBGToB" ToRole="CommonUser" />
+        </EntityType>
+        <EntityType Name="CommonUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RegistTime" Type="DateTime" Precision="3" />
+          <Property Name="RegistWay" Type="Int32" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CashBlance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PayId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isFreeze" Type="Boolean" />
+          <Property Name="FreezeMoney" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="integral" Type="Int32" />
+          <Property Name="IsDistribution" Type="Boolean" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="LastIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NickName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HeadImage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="CBGToB" Relationship="TiDiHuiModel.FK_CBGToB_CommonUser" FromRole="CommonUser" ToRole="CBGToB" />
+          <NavigationProperty Name="CUserEqpt" Relationship="TiDiHuiModel.FK_CUserEqpt_CommonUser" FromRole="CommonUser" ToRole="CUserEqpt" />
+          <NavigationProperty Name="Distribution" Relationship="TiDiHuiModel.FK_Distribution_CommonUser" FromRole="CommonUser" ToRole="Distribution" />
+        </EntityType>
+        <EntityType Name="CUserEqpt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equipment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CommonUser" Relationship="TiDiHuiModel.FK_CUserEqpt_CommonUser" FromRole="CUserEqpt" ToRole="CommonUser" />
+        </EntityType>
+        <EntityType Name="Distribution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CommonUser" Relationship="TiDiHuiModel.FK_Distribution_CommonUser" FromRole="Distribution" ToRole="CommonUser" />
+        </EntityType>
+        <EntityType Name="NaturalInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MngName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MngEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LinkName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LinkMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LgName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LgEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LgMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LienceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDFront" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IDBack" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IDSDate" Type="DateTime" Precision="3" />
+          <Property Name="IDEDate" Type="DateTime" Precision="3" />
+          <Property Name="Licence" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LceSDate" Type="DateTime" Precision="3" />
+          <Property Name="LceEDate" Type="DateTime" Precision="3" />
+          <Property Name="TaxImProve" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="OrgImProve" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="OrgSDate" Type="DateTime" Precision="3" />
+          <Property Name="OrgEDate" Type="DateTime" Precision="3" />
+          <Property Name="OpenAllow" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ProxyState" Type="Int32" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="refuseReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BrandImprove" Relationship="TiDiHuiModel.FK_BrandImprove_NaturalInfo" FromRole="NaturalInfo" ToRole="BrandImprove" />
+          <NavigationProperty Name="BUser" Relationship="TiDiHuiModel.FK_NaturalInfo_BUser" FromRole="NaturalInfo" ToRole="BUser" />
+        </EntityType>
+        <EntityType Name="ProxyNature_c">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProxyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDFront" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IDBack" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IDSDate" Type="DateTime" Precision="3" />
+          <Property Name="IDEDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="AddDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProxyUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegionId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RolId" Type="Int32" />
+          <Property Name="PayId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Blance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CashBlance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MngName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MngEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MngMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LinkName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LinkMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LgName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LgEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LgMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LienceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDFront" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IDBack" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IDSDate" Type="DateTime" Precision="3" />
+          <Property Name="IDEDate" Type="DateTime" Precision="3" />
+          <Property Name="Licence" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LceSDate" Type="DateTime" Precision="3" />
+          <Property Name="LceEDate" Type="DateTime" Precision="3" />
+          <Property Name="TaxImProve" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="OrgImProve" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="OrgSDate" Type="DateTime" Precision="3" />
+          <Property Name="OrgEDate" Type="DateTime" Precision="3" />
+          <Property Name="OpenAllow" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="refuseReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BUser" Relationship="TiDiHuiModel.FK_BUser_ProxyUser" FromRole="ProxyUser" ToRole="BUser" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CgyId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Introduce" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Blance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CashBlance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="bail" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BUser" Relationship="TiDiHuiModel.FK_BUser_Shop" FromRole="Shop" ToRole="BUser" />
+          <NavigationProperty Name="Category" Relationship="TiDiHuiModel.FK_Shop_Category" FromRole="Shop" ToRole="Category" />
+          <NavigationProperty Name="ShopScore" Relationship="TiDiHuiModel.FK_ShopScore_Shop" FromRole="Shop" ToRole="ShopScore" />
+        </EntityType>
+        <EntityType Name="ShopScore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShopId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Service" Type="Int32" />
+          <Property Name="ServiceCount" Type="Int32" />
+          <Property Name="Quality" Type="Int32" />
+          <Property Name="QualityCount" Type="Int32" />
+          <Property Name="SdSpeed" Type="Int32" />
+          <Property Name="SdCount" Type="Int32" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Shop" Relationship="TiDiHuiModel.FK_ShopScore_Shop" FromRole="ShopScore" ToRole="Shop" />
+        </EntityType>
+        <Association Name="FK_Admin_Admin">
+          <End Type="TiDiHuiModel.Admin" Role="Admin" Multiplicity="1" />
+          <End Type="TiDiHuiModel.Admin" Role="Admin1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Admin1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrandImprove_NaturalInfo">
+          <End Type="TiDiHuiModel.NaturalInfo" Role="NaturalInfo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TiDiHuiModel.BrandImprove" Role="BrandImprove" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NaturalInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandImprove">
+              <PropertyRef Name="NaturalInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUser_ProxyUser">
+          <End Type="TiDiHuiModel.ProxyUser" Role="ProxyUser" Multiplicity="0..1" />
+          <End Type="TiDiHuiModel.BUser" Role="BUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProxyUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BUser">
+              <PropertyRef Name="ProxyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUser_Shop">
+          <End Type="TiDiHuiModel.Shop" Role="Shop" Multiplicity="0..1" />
+          <End Type="TiDiHuiModel.BUser" Role="BUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BUser">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CBGToB_BUser">
+          <End Type="TiDiHuiModel.BUser" Role="BUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TiDiHuiModel.CBGToB" Role="CBGToB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CBGToB">
+              <PropertyRef Name="BUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NaturalInfo_BUser">
+          <End Type="TiDiHuiModel.BUser" Role="BUser" Multiplicity="0..1" />
+          <End Type="TiDiHuiModel.NaturalInfo" Role="NaturalInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NaturalInfo">
+              <PropertyRef Name="BUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Category">
+          <End Type="TiDiHuiModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="TiDiHuiModel.Shop" Role="Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="CgyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CBGToB_CommonUser">
+          <End Type="TiDiHuiModel.CommonUser" Role="CommonUser" Multiplicity="0..1" />
+          <End Type="TiDiHuiModel.CBGToB" Role="CBGToB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommonUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CBGToB">
+              <PropertyRef Name="CUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUserEqpt_CommonUser">
+          <End Type="TiDiHuiModel.CommonUser" Role="CommonUser" Multiplicity="0..1" />
+          <End Type="TiDiHuiModel.CUserEqpt" Role="CUserEqpt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommonUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CUserEqpt">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Distribution_CommonUser">
+          <End Type="TiDiHuiModel.CommonUser" Role="CommonUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TiDiHuiModel.Distribution" Role="Distribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommonUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Distribution">
+              <PropertyRef Name="CUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopScore_Shop">
+          <End Type="TiDiHuiModel.Shop" Role="Shop" Multiplicity="0..1" />
+          <End Type="TiDiHuiModel.ShopScore" Role="ShopScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShopScore">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TiDiHuiModelStoreContainer" CdmEntityContainer="TiDiHuiEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="TiDiHuiModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Users" ColumnName="Users" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Lasttime" ColumnName="Lasttime" />
+                <ScalarProperty Name="LastIp" ColumnName="LastIp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminLog">
+            <EntityTypeMapping TypeName="TiDiHuiModel.AdminLog">
+              <MappingFragment StoreEntitySet="AdminLog">
+                <ScalarProperty Name="Act" ColumnName="Act" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="LastIp" ColumnName="LastIp" />
+                <ScalarProperty Name="Users" ColumnName="Users" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BrandImprove">
+            <EntityTypeMapping TypeName="TiDiHuiModel.BrandImprove">
+              <MappingFragment StoreEntitySet="BrandImprove">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Src" ColumnName="Src" />
+                <ScalarProperty Name="NaturalInfoId" ColumnName="NaturalInfoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BUser">
+            <EntityTypeMapping TypeName="TiDiHuiModel.BUser">
+              <MappingFragment StoreEntitySet="BUser">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="PayId" ColumnName="PayId" />
+                <ScalarProperty Name="ProxyId" ColumnName="ProxyId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="TiDiHuiModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CBGToB">
+            <EntityTypeMapping TypeName="TiDiHuiModel.CBGToB">
+              <MappingFragment StoreEntitySet="CBGToB">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="BUserId" ColumnName="BUserId" />
+                <ScalarProperty Name="CUserId" ColumnName="CUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommonUser">
+            <EntityTypeMapping TypeName="TiDiHuiModel.CommonUser">
+              <MappingFragment StoreEntitySet="CommonUser">
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="HeadImage" ColumnName="HeadImage" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="LastIp" ColumnName="LastIp" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="IsDistribution" ColumnName="IsDistribution" />
+                <ScalarProperty Name="integral" ColumnName="integral" />
+                <ScalarProperty Name="FreezeMoney" ColumnName="FreezeMoney" />
+                <ScalarProperty Name="isFreeze" ColumnName="isFreeze" />
+                <ScalarProperty Name="PayId" ColumnName="PayId" />
+                <ScalarProperty Name="CashBlance" ColumnName="CashBlance" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="RegistWay" ColumnName="RegistWay" />
+                <ScalarProperty Name="RegistTime" ColumnName="RegistTime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUserEqpt">
+            <EntityTypeMapping TypeName="TiDiHuiModel.CUserEqpt">
+              <MappingFragment StoreEntitySet="CUserEqpt">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="equipment" ColumnName="equipment" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Distribution">
+            <EntityTypeMapping TypeName="TiDiHuiModel.Distribution">
+              <MappingFragment StoreEntitySet="Distribution">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="CUserID" ColumnName="CUserID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NaturalInfo">
+            <EntityTypeMapping TypeName="TiDiHuiModel.NaturalInfo">
+              <MappingFragment StoreEntitySet="NaturalInfo">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="refuseReason" ColumnName="refuseReason" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ProxyState" ColumnName="ProxyState" />
+                <ScalarProperty Name="OpenAllow" ColumnName="OpenAllow" />
+                <ScalarProperty Name="OrgEDate" ColumnName="OrgEDate" />
+                <ScalarProperty Name="OrgSDate" ColumnName="OrgSDate" />
+                <ScalarProperty Name="OrgImProve" ColumnName="OrgImProve" />
+                <ScalarProperty Name="TaxImProve" ColumnName="TaxImProve" />
+                <ScalarProperty Name="LceEDate" ColumnName="LceEDate" />
+                <ScalarProperty Name="LceSDate" ColumnName="LceSDate" />
+                <ScalarProperty Name="Licence" ColumnName="Licence" />
+                <ScalarProperty Name="IDEDate" ColumnName="IDEDate" />
+                <ScalarProperty Name="IDSDate" ColumnName="IDSDate" />
+                <ScalarProperty Name="IDBack" ColumnName="IDBack" />
+                <ScalarProperty Name="IDFront" ColumnName="IDFront" />
+                <ScalarProperty Name="CreditCode" ColumnName="CreditCode" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="LienceCode" ColumnName="LienceCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompName" ColumnName="CompName" />
+                <ScalarProperty Name="LgMobile" ColumnName="LgMobile" />
+                <ScalarProperty Name="LgEmail" ColumnName="LgEmail" />
+                <ScalarProperty Name="LgName" ColumnName="LgName" />
+                <ScalarProperty Name="LinkMobile" ColumnName="LinkMobile" />
+                <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="MngEmail" ColumnName="MngEmail" />
+                <ScalarProperty Name="MngName" ColumnName="MngName" />
+                <ScalarProperty Name="BUserId" ColumnName="BUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProxyNature_c">
+            <EntityTypeMapping TypeName="TiDiHuiModel.ProxyNature_c">
+              <MappingFragment StoreEntitySet="ProxyNature_c">
+                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="IDEDate" ColumnName="IDEDate" />
+                <ScalarProperty Name="IDSDate" ColumnName="IDSDate" />
+                <ScalarProperty Name="IDBack" ColumnName="IDBack" />
+                <ScalarProperty Name="IDFront" ColumnName="IDFront" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProxyUserId" ColumnName="ProxyUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProxyUser">
+            <EntityTypeMapping TypeName="TiDiHuiModel.ProxyUser">
+              <MappingFragment StoreEntitySet="ProxyUser">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="refuseReason" ColumnName="refuseReason" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="OpenAllow" ColumnName="OpenAllow" />
+                <ScalarProperty Name="OrgEDate" ColumnName="OrgEDate" />
+                <ScalarProperty Name="OrgSDate" ColumnName="OrgSDate" />
+                <ScalarProperty Name="OrgImProve" ColumnName="OrgImProve" />
+                <ScalarProperty Name="TaxImProve" ColumnName="TaxImProve" />
+                <ScalarProperty Name="LceEDate" ColumnName="LceEDate" />
+                <ScalarProperty Name="LceSDate" ColumnName="LceSDate" />
+                <ScalarProperty Name="Licence" ColumnName="Licence" />
+                <ScalarProperty Name="IDEDate" ColumnName="IDEDate" />
+                <ScalarProperty Name="IDSDate" ColumnName="IDSDate" />
+                <ScalarProperty Name="IDBack" ColumnName="IDBack" />
+                <ScalarProperty Name="IDFront" ColumnName="IDFront" />
+                <ScalarProperty Name="CreditCode" ColumnName="CreditCode" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="LienceCode" ColumnName="LienceCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompName" ColumnName="CompName" />
+                <ScalarProperty Name="LgMobile" ColumnName="LgMobile" />
+                <ScalarProperty Name="LgEmail" ColumnName="LgEmail" />
+                <ScalarProperty Name="LgName" ColumnName="LgName" />
+                <ScalarProperty Name="LinkMobile" ColumnName="LinkMobile" />
+                <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="MngMobile" ColumnName="MngMobile" />
+                <ScalarProperty Name="MngEmail" ColumnName="MngEmail" />
+                <ScalarProperty Name="MngName" ColumnName="MngName" />
+                <ScalarProperty Name="CashBlance" ColumnName="CashBlance" />
+                <ScalarProperty Name="Blance" ColumnName="Blance" />
+                <ScalarProperty Name="PayId" ColumnName="PayId" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shop">
+            <EntityTypeMapping TypeName="TiDiHuiModel.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="bail" ColumnName="bail" />
+                <ScalarProperty Name="CashBlance" ColumnName="CashBlance" />
+                <ScalarProperty Name="Blance" ColumnName="Blance" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CgyId" ColumnName="CgyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopScore">
+            <EntityTypeMapping TypeName="TiDiHuiModel.ShopScore">
+              <MappingFragment StoreEntitySet="ShopScore">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="SdCount" ColumnName="SdCount" />
+                <ScalarProperty Name="SdSpeed" ColumnName="SdSpeed" />
+                <ScalarProperty Name="QualityCount" ColumnName="QualityCount" />
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="ServiceCount" ColumnName="ServiceCount" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
